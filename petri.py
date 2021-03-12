@@ -1,7 +1,7 @@
 import threading
 import time
-from random import *
-
+# from random import *
+import random as rd
 
 ev_arq_pro = 2
 ev_pro_tes = 2
@@ -20,7 +20,7 @@ def arquitecto():
     while True :
         sem_arq.acquire()
         print("el %s está comenzando su trabajo\n" %threading.currentThread().getName())
-        time.sleep(1 + randrange(10))
+        time.sleep(1 + rd.randrange(10))
         print("el %s ha terminado su trabajo\n" %threading.currentThread().getName())
         sem1.acquire()
         evento_diseño()
@@ -32,7 +32,7 @@ def programador():
     while True:
         sem_prog.acquire()
         print("el programador%s está programando\n" %threading.currentThread().getName())
-        time.sleep(1 + randrange(10))
+        time.sleep(1 + rd.randrange(10))
         print("el programador%s termino de programar\n" %threading.currentThread().getName())
         sem1.acquire()
         evento_programador()
@@ -45,7 +45,7 @@ def tester():
     while True:
         sem_test.acquire()
         print("el tester está revisando el proyecto realizado por los programadores \n")
-        time.sleep(1 +  randrange(10) )
+        time.sleep(1 +  rd.randrange(10) )
         print("el tester acaba de analizar el programa pero ha encontrado nuevas fallas \n")
         sem1.acquire()
         evento_tester()
@@ -79,8 +79,7 @@ def evento_tester():
     print ("se ha enviado de nuevo el trabajo al analista y diseñador, buena suerte \n")
     sem_arq.release()
     sem_arq.release()
-   
- 
+
 # funcion principal donde setea el primer elemento (analista, diseñador), luego automaticamente realiza el ciclo
 def main():
 
@@ -109,11 +108,6 @@ def main():
     programadorB.join()
     Tester.join()
 
-
-
-
-
-    
 
 if __name__ == '__main__':
     main()
