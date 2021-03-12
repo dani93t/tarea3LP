@@ -14,11 +14,11 @@ git clone http://github.com/dani93t/tarea3LP
 ```
 2. ejecutar
 ```bash
-python "petri.py"
+python petri.py
 ```
 Si tiene Python en su PATH, ingresa
 ```bash
-"petri.py"
+petri.py
 ```
 
 ## Referencias
