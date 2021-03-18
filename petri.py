@@ -77,7 +77,7 @@ class Petri(object):
 
 
     def __tiempoTrabajo__(self):
-        time.sleep(5 + rd.random()*9)
+        time.sleep(1 + rd.random()*9)
 
 
     def run(self):
